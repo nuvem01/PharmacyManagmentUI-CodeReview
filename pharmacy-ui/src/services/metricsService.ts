@@ -5,7 +5,7 @@ import axios  from "axios";
 
 export const fetchPharmacySales = createAsyncThunk(    
     "fetchPharmacySales",
-    async (_, {rejectWithValue}) => {
+    async () => {
         
         try {    
             console.log("metrics service 1");
@@ -18,13 +18,7 @@ export const fetchPharmacySales = createAsyncThunk(
         return response.data;
         } 
         catch (err) {   
-            console.log("errorsales");
-            console.log(err);
-          const hasErrResponse = (err as { response: { [key: string]: string } }).response;
-          if (!hasErrResponse) {
-            throw err;
-          }
-          return rejectWithValue(hasErrResponse);
+            console.log("there was an error");
         }
     }
 );

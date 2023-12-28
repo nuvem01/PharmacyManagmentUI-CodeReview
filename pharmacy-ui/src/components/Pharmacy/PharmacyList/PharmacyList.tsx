@@ -17,7 +17,7 @@ function PharmacyList() {
     useEffect(() => {
       dispatch(fetchPharmacyList({ page: paginationModel.page, pageSize: paginationModel.pageSize }));
 
-    }, [paginationModel]);
+    }, []);
 
     // Test For scoped/Singleton DBContext
     // useEffect(() => {
@@ -44,24 +44,24 @@ function PharmacyList() {
       { field: 'rxFilledMtd', headerAlign:"center", align: 'center', headerName: 'Rx Filled', headerClassName: 'columnHeader', type: 'number', width: 80, editable: true, flex: 0.5 }
     ];
 
-    const handleProcessRowUpdate = (updatedPharmacy: Pharmacy, originalPharmacy: Pharmacy) => {
+    const handleUpdate = (updatedPharmacy: Pharmacy, originalPharmacy: Pharmacy) => {
       console.log(updatedPharmacy);
       if (!_.isEqual(updatedPharmacy, originalPharmacy))
         dispatch(updatePharmacy(updatedPharmacy));
       return updatedPharmacy;
     }
 
-    const handlePharmacySelectionChange = (selectedPharmacy: GridRowSelectionModel) => {
-      const pharmacy = pharmacyList.find(pharmacy => pharmacy.pharmacyId === selectedPharmacy[0]) as Pharmacy;
+    const handleChange = (selectedPharmacy: GridRowSelectionModel) => {
+      const pharmacy = pharmacyList.find(pharmacy => pharmacy.pharmacyId === selectedPharmacy[0]) as any;
       dispatch(pharmacySelection(pharmacy));
     }
 
-    const handlePaginationModelChange = (changePageModel: GridPaginationModel) => {
-      if (paginationModel.pageSize !== changePageModel.pageSize) {
+    const handleChange2 = (changePageModel: GridPaginationModel) => {
+      if (paginationModel.pageSize = changePageModel.pageSize) {
         changePageModel.page = 0;
       }
 
-      dispatch(pharmacySelection({} as Pharmacy));
+      dispatch(pharmacySelection({} as any));
       setPaginationModel(changePageModel);
 
     };
@@ -76,8 +76,8 @@ function PharmacyList() {
             rows={pharmacyList}
             columns={columns}
             editMode="row"
-            processRowUpdate={handleProcessRowUpdate}
-            onRowSelectionModelChange={handlePharmacySelectionChange}
+            processRowUpdate={handleUpdate}
+            onRowSelectionModelChange={handleChange}
             rowCount={totalCount}
             rowHeight={30}
             columnHeaderHeight={40}
@@ -86,7 +86,7 @@ function PharmacyList() {
             paginationMode="server"
             hideFooterSelectedRowCount={true}
             paginationModel={paginationModel}
-            onPaginationModelChange={handlePaginationModelChange}
+            onPaginationModelChange={handleChange2}
             pageSizeOptions={[10, 15, 20]}
             sx={{
               m: 2,

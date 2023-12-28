@@ -10,12 +10,12 @@ import { Drug } from './views/Drug/Drug';
 function App() {
   return (      
       <Router>   
-            <Routes>
+            
               <Route path="/" element={<Layout someComponent={<Home/>}/>}/>
-              <Route path="error" element={<Layout someComponent={<PageNotFound/>}/>}/>
-              <Route path="chart" element={<Layout someComponent={<Chart/>}/>}/>
-              <Route path="drug" element={<Layout someComponent={<Drug/>}/>}/>
-            </Routes> 
+              <Route path="/" element={<Layout someComponent={<PageNotFound/>}/>}/>
+              <Route path="/" element={<Layout someComponent={<Chart/>}/>}/>
+              <Route path="/" element={<Layout someComponent={<Drug/>}/>}/>
+            
       </Router> 
   )
 }

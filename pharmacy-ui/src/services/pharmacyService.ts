@@ -11,7 +11,7 @@ export type pharma = {
 
 export const fetchPharmacistReport =  createAsyncThunk(
   'fetchPharmacistReport',
-  async (params: pharma, {rejectWithValue}) => {
+  async (params: any) => {
     try {    
       //console.log(pagingParams);
       const response = await axios({
@@ -23,17 +23,13 @@ export const fetchPharmacistReport =  createAsyncThunk(
       return response.data;
   } 
   catch (err) {   
-    const hasErrResponse = (err as { response: { [key: string]: string } }).response;
-    if (!hasErrResponse) {
-      throw err;
-    }
-    return rejectWithValue(hasErrResponse);
+    console.log("there was an error")
   }
   })
 
   export const fetchPharmacyList =  createAsyncThunk(
     'fetchPharmacyList',
-    async (pagingParams: PaginationModel, {rejectWithValue}) => {
+    async (pagingParams: any) => {
       try {    
         //console.log(pagingParams);
         const response = await axios({
@@ -45,18 +41,14 @@ export const fetchPharmacistReport =  createAsyncThunk(
         return response.data;
     } 
     catch (err) {   
-      const hasErrResponse = (err as { response: { [key: string]: string } }).response;
-      if (!hasErrResponse) {
-        throw err;
-      }
-      return rejectWithValue(hasErrResponse);
+      console.log("there was an error")
     }
     })
 
 
   export const updatePharmacy = createAsyncThunk(
     "updatePharmacy",
-    async (Pharmacy: Pharmacy, { rejectWithValue,}) => {
+    async (Pharmacy:any) => {
       try {    
           const response = await axios({
             method: 'put',
@@ -67,11 +59,7 @@ export const fetchPharmacistReport =  createAsyncThunk(
           return response.data;
       } 
       catch (err) {   
-        const hasErrResponse = (err as { response: { [key: string]: string } }).response;
-        if (!hasErrResponse) {
-          throw err;
-        }
-        return rejectWithValue(hasErrResponse);
+        console.log("there was an error")
       }
     }
   );  

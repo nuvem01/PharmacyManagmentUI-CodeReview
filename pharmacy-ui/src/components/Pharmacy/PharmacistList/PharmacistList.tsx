@@ -18,7 +18,7 @@ const PharmacistList = () => {
         }
         return retVal;
     }
-      const { pharmacistList, pharmacistCount,pharmacistError,selectedPharmacy,pharmacistloading } = useAppSelector((state) => { return state.pharmacyReducer; });
+      const { pharmacistList, pharmacistCount,pharmacistError,selectedPharmacy,pharmacistloading } = useAppSelector((state: { pharmacyReducer: any; }) => { return state.pharmacyReducer; });
       const dispatch = useAppDispatch();
 
       useEffect(() => {                
@@ -26,9 +26,9 @@ const PharmacistList = () => {
         {
             dispatch(fetchPharmacistReport({id: selectedPharmacy.pharmacyId,pagingParams: {page:pharmacistPaginationModel.page,pageSize:pharmacistPaginationModel.pageSize}}));
         }        
-    }, [selectedPharmacy, pharmacistPaginationModel, dispatch]);
+    }, []);
 
-    const handlePaginationModelChange = (changePageModel: GridPaginationModel) => {
+    const handlePaginationModelChange = (changePageModel: any) => {
       if (pharmacistPaginationModel.pageSize !== changePageModel.pageSize) 
       {
         changePageModel.page = 0;

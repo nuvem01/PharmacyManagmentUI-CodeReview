@@ -14,15 +14,20 @@ const PharmacyCard = () => {
   return (    
     
   <div className='card-top'>
+    <div>
     <Card sx={{ width:"538px",height:"77px", align:"top", textAlign:"center",  color: "#FAF9F6", background:"rgba(5, 44, 68, 0.367)" }} >
       <CardContent>
-      <Typography variant="h5"> {selectedPharmacy.name} 
+        <div>
+        <Typography variant="h5"> {selectedPharmacy.name} 
         </Typography>
+        </div>
         <Typography variant="subtitle1">
         {selectedPharmacy.address}, {selectedPharmacy.city}, {selectedPharmacy.state} - {selectedPharmacy.zip}
         </Typography>
       </CardContent>
     </Card>
+    </div>
+
 
     </div>
 

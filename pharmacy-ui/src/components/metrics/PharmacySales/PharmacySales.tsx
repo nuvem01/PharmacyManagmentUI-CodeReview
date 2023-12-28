@@ -14,7 +14,7 @@ export const PharmacySales = () => {
         dispatch(fetchPharmacySales());     
       }, []);
 
-      if(!pharmacySales || pharmacySales.length === 0)
+      if(!pharmacySales && pharmacySales.length === 0)
         return null;
     const mtdData = pharmacySales.map(s => s.totalSalesMTD);
     const ytdData = pharmacySales.map(s => s.totalSalesYTD);
