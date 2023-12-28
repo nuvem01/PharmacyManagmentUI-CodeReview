@@ -8,7 +8,7 @@ import '../../../assets/colors.scss';
 const PharmacyCard = () => {
 
   const { selectedPharmacy } = useAppSelector((state) => { return state.pharmacyReducer; });
-  if(!selectedPharmacy || !selectedPharmacy.name )
+  if(selectedPharmacy && selectedPharmacy.name )
       return null;
 
   return (    

@@ -16,7 +16,7 @@ export const MostDemandedDrug = () => {
         dispatch(fetchMostDemandedDrug());     
       }, []);
 
-      if(!mostDemandedDrug || mostDemandedDrug.length === 0)
+      if(!mostDemandedDrug || mostDemandedDrug.length == 0)
         return null;
 
     const columns: GridColDef[] = [

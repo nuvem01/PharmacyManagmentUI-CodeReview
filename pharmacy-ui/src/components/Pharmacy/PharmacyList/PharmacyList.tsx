@@ -37,6 +37,16 @@ function PharmacyList() {
 
     }
 
+    //////////////////////
+    //////////////////////
+    //////////////////////
+    //////////////////////
+    ///////METHODS////////
+    //////////////////////
+    //////////////////////
+    //////////////////////
+
+
     const columns: GridColDef[] = [
       { field: 'name', headerName: 'Pharmacy', headerClassName: 'columnHeader', width: 125, editable: true, flex: 1 },
       { field: 'city', headerName: 'City', headerClassName: 'columnHeader', width: 75, editable: true, flex: 0.75 },
@@ -54,6 +64,8 @@ function PharmacyList() {
     const handleChange = (selectedPharmacy: GridRowSelectionModel) => {
       const pharmacy = pharmacyList.find(pharmacy => pharmacy.pharmacyId === selectedPharmacy[0]) as any;
       dispatch(pharmacySelection(pharmacy));
+      console.log("does this work")
+      //consonle.log("test2")
     }
 
     const handleChange2 = (changePageModel: GridPaginationModel) => {
